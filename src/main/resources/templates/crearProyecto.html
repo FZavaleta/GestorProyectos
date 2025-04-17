@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th ="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de estudiantes</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <link th:rel="icon" th:href="@{/images/icon-tab.png}" type="image/png"/>
+  </head>
+  <body>
+    <nav class="navbar narvbar-expand-md bg-dark navbar-dark">
+      <a class="navbar-brand" href="/proyectos">Control de Proyectos</a>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/Proyectos}">Control de Proyectos</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+                <h1 class="text-center">Registrar Nuevo Proyecto</h1>
+                <div class="card-body"></div>
+                <form th:action="@{/proyecto/crear/guardar}" th:object="${proyecto}" method="POST">
+                    <div class="form-group">
+                        <label>Nombre: </label>
+                        <input type="text" name="nombre" th:field="*{nombre}" class="form-control" placeholder="Introdusca el nombre del proyecto" required>
+                    
+                    <br>
+                        <label>Tipo: </label>
+                        <input type="text" name="tipo" th:field="*{tipo}" class="form-control" placeholder="Introdusca el tipo del proyecto" required>
+                    <br>
+                        <label>Descripcion: </label>
+                        <input type="text" name="descripcion" th:field="*{descripcion}" class="form-control" placeholder="Describa el proyecto o tarea" required>
+                    <br>
+                        <label>Fecha de entrega: </label>
+                        <input type="date" name="fechaEntrega" th:field="*{fechaEntrega}" class="form-control" placeholder="AAAA-MM-dd" required>
+                    <br>
+                  </div>
+                    <div class="box-footer">
+                        <button class="btn btn-success">Guardar</button>
+                    </div>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
